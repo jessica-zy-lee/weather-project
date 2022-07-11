@@ -47,10 +47,17 @@ h2 {
   font-size: 40px;
 }
 
+.open-source {
+  text-decoration: none;
+  color: black;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  left: 80px;
+  bottom: 50px;
+}
 .celcius-unit,
 .fahrenheit-unit,
-.geolocation,
-.open-source {
+.geolocation {
   text-decoration: none;
   color: black;
   transition: all 200ms ease-in-out;
