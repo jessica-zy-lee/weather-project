@@ -130,23 +130,3 @@ function convertCelcius(event) {
 
 let celciusUnit = document.querySelector(".celcius-unit");
 celciusUnit.addEventListener("click", convertCelcius);
-
-// Omit: Fahrenheit challenge
-
-// function changeToCelcius(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector(".current-temperature");
-//   currentTemperature.innerHTML = `19`;
-// }
-
-// let clickCelcius = document.querySelector(".celcius-unit");
-// clickCelcius.addEventListener("click", changeToCelcius);
-
-// function changeToFahrenheit(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector(".current-temperature");
-//   currentTemperature.innerHTML = `66`;
-// }
-
-// let clickFahrenheit = document.querySelector(".fahrenheit-unit");
-// clickFahrenheit.addEventListener("click", changeToFahrenheit);
