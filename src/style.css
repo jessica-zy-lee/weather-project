@@ -3,7 +3,8 @@ form {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 70px;
+  margin-top: 25px;
 }
 
 h2 {
@@ -23,7 +24,7 @@ h2 {
   box-shadow: 20px 30px 50px rgba(65, 50, 100, 0.3);
   display: block;
   margin: 20px auto;
-  max-width: 90%;
+  max-width: 94%;
   max-height: 70%;
   padding: 25px 50px 40px;
 }
@@ -35,8 +36,9 @@ h2 {
   border: 3px;
   border-radius: 30px;
   box-shadow: 20px 30px 20px rgba(65, 50, 100, 0.25);
+  font-family: "Rubik", sans-serif;
   margin: 20px auto;
-  max-width: 75%;
+  max-width: 200%;
   padding: 25px 50px 40px;
 }
 
@@ -53,7 +55,7 @@ h2 {
 .units {
   position: relative;
   bottom: 33px;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .open-source {
@@ -85,7 +87,7 @@ h2 {
 }
 
 .current-location {
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .additional-weather-info {
