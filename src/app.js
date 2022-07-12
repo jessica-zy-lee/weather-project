@@ -75,10 +75,11 @@ function displayForecast(response) {
           alt=""
           width="42"
         />
+        <div class="weather-forecast-temperatures">
         <div class="weather-forecast-temperature-min">  ${Math.round(
           forecastDay.temp.min
         )}°</div>
-        <div class="weather-forecast-temperatures">
+
           <div class="weather-forecast-temperature-max">  ${Math.round(
             forecastDay.temp.max
           )}°</div>
@@ -91,6 +92,7 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  forecastTemp = forecast;
 }
 
 function getForecast(coordinates) {
@@ -119,6 +121,9 @@ function displayWeatherCondition(response) {
   tempMax.innerHTML = Math.round(response.data.main.temp_max);
 
   celciusTemperature = response.data.main.temp;
+  celciusFeelsLike = response.data.main.feels_like;
+  celciusTempMin = response.data.main.temp_min;
+  celciusTempMax = response.data.main.temp_max;
 
   getForecast(response.data.coord);
 }
@@ -163,6 +168,10 @@ geolocation.addEventListener("click", getGeolocation);
 // Fahrenheit and Celcius conversion
 
 let celciusTemperature = null;
+let feelsLike = null;
+let tempMin = null;
+let tempMax = null;
+let forecastTemp = [];
 
 function convertFahrenheit(event) {
   event.preventDefault();
@@ -171,6 +180,28 @@ function convertFahrenheit(event) {
   fahrenheitUnit.classList.add("active");
   let fahrenheitTemperature = Math.round(celciusTemperature * 1.8 + 32);
   temperatureElement.innerHTML = fahrenheitTemperature;
+  let currentFeel = document.querySelector("#feels-like");
+  let min = document.querySelector("#temp-min");
+  let max = document.querySelector("#temp-max");
+  let forecastMin = document.getElementsByClassName(
+    "weather-forecast-temperature-min"
+  );
+  let forecastMax = document.getElementsByClassName(
+    "weather-forecast-temperature-max"
+  );
+
+  currentFeel.innerHTML = Math.round(celciusFeelsLike * 1.8 + 32);
+  min.innerHTML = Math.round(celciusTempMin * 1.8 + 32);
+  max.innerHTML = Math.round(celciusTempMax * 1.8 + 32);
+
+  for (i = 0; i < 7; i++) {
+    forecastMin[i].innerHTML = `${Math.round(
+      (forecastTemp[i].temp.min * 9) / 5 + 32
+    )}º`;
+    forecastMax[i].innerHTML = `${Math.round(
+      (forecastTemp[i].temp.max * 9) / 5 + 32
+    )}º`;
+  }
 }
 
 let fahrenheitUnit = document.querySelector(".fahrenheit-unit");
@@ -182,6 +213,24 @@ function convertCelcius(event) {
   celciusUnit.classList.add("active");
   fahrenheitUnit.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
+  let currentFeel = document.querySelector("#feels-like");
+  let min = document.querySelector("#temp-min");
+  let max = document.querySelector("#temp-max");
+  let forecastMin = document.getElementsByClassName(
+    "weather-forecast-temperature-min"
+  );
+  let forecastMax = document.getElementsByClassName(
+    "weather-forecast-temperature-max"
+  );
+
+  currentFeel.innerHTML = Math.round(celciusFeelsLike);
+  min.innerHTML = Math.round(celciusTempMin);
+  max.innerHTML = Math.round(celciusTempMax);
+
+  for (i = 0; i < 7; i++) {
+    forecastMin[i].innerHTML = `${Math.round(forecastTemp[i].temp.min)}º`;
+    forecastMax[i].innerHTML = `${Math.round(forecastTemp[i].temp.max)}º`;
+  }
 }
 
 let celciusUnit = document.querySelector(".celcius-unit");
