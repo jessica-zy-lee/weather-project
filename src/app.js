@@ -111,6 +111,8 @@ let celciusTemperature = null;
 function convertFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".current-temperature");
+  celciusUnit.classList.remove("active");
+  fahrenheitUnit.classList.add("active");
   let fahrenheitTemperature = Math.round(celciusTemperature * 1.8 + 32);
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
@@ -121,6 +123,8 @@ fahrenheitUnit.addEventListener("click", convertFahrenheit);
 function convertCelcius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".current-temperature");
+  celciusUnit.classList.add("active");
+  fahrenheitUnit.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 

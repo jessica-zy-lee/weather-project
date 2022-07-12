@@ -40,6 +40,16 @@ h2 {
   padding: 25px 50px 40px;
 }
 
+.units .active {
+  color: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
+.units .active:hover {
+  color: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
 .units {
   position: relative;
   bottom: 33px;
@@ -54,11 +64,12 @@ h2 {
   left: 80px;
   bottom: 50px;
 }
+
 .celcius-unit,
 .fahrenheit-unit,
 .geolocation {
   text-decoration: none;
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
   transition: all 200ms ease-in-out;
 }
 
