@@ -63,6 +63,8 @@ function displayWeatherCondition(response) {
   tempMin.innerHTML = Math.round(response.data.main.temp_min);
   let tempMax = document.querySelector("#temp-max");
   tempMax.innerHTML = Math.round(response.data.main.temp_max);
+
+  celciusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -102,7 +104,30 @@ function getGeolocation(event) {
 let geolocation = document.querySelector(".geolocation");
 geolocation.addEventListener("click", getGeolocation);
 
-// Fahrenheit challenge
+// Fahrenheit and Celcius conversion
+
+let celciusTemperature = null;
+
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".current-temperature");
+  let fahrenheitTemperature = Math.round(celciusTemperature * 1.8 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+let fahrenheitUnit = document.querySelector(".fahrenheit-unit");
+fahrenheitUnit.addEventListener("click", convertFahrenheit);
+
+function convertCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".current-temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusUnit = document.querySelector(".celcius-unit");
+celciusUnit.addEventListener("click", convertCelcius);
+
+// Omit: Fahrenheit challenge
 
 // function changeToCelcius(event) {
 //   event.preventDefault();
