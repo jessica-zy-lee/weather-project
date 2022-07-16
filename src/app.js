@@ -137,6 +137,9 @@ function searchCity(city) {
 
 function handleSearch(event) {
   event.preventDefault();
+  let temperatureElement = document.querySelector(".current-temperature");
+  celciusUnit.classList.add("active");
+  fahrenheitUnit.classList.remove("active");
   let city = document.querySelector("#exampleInputEmail1").value;
   searchCity(city);
 }
